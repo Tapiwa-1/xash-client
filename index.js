@@ -99,55 +99,56 @@ async function promptGetCategories(token) {
 
 async function afterLoginMenu(token) {
   console.log("\n=== 📋 Business Menu ===");
-  console.log("/create-business - Create a new business");
-  console.log("/categories - View business categories");
-  console.log("/logout - Logout and return to main menu\n");
+  console.log("1. Create a new business");
+  console.log("2. View business categories");
+  console.log("3. Logout and return to main menu\n");
 
   while (true) {
-    const command = await rl.question("Business command: ");
+    const choice = await rl.question("Select an option (1-3): ");
 
-    switch (command.trim()) {
-      case "/create-business":
+    switch (choice.trim()) {
+      case "1":
         await promptCreateBusiness(token);
         break;
-      case "/categories":
+      case "2":
         await promptGetCategories(token);
         break;
-      case "/logout":
+      case "3":
         console.log("🔒 Logged out.\n");
         return;
       default:
-        console.log("❓ Unknown business command. Try again.");
+        console.log("❓ Invalid choice. Please select a valid option (1-3).");
     }
   }
 }
 
 async function mainMenu() {
   console.log("\n=== 🔧 Command Menu ===");
-  console.log("/register - Register new user");
-  console.log("/set-password - Set a user's password");
-  console.log("/login - Login and view profile");
-  console.log("/exit - Exit the program\n");
+  console.log("1. Register new user");
+  console.log("2. Set a user's password");
+  console.log("3. Login and view profile");
+  console.log("4. Exit the program\n");
 
   while (true) {
-    const command = await rl.question("Enter command: ");
+    const choice = await rl.question("Select an option (1-4): ");
 
-    switch (command.trim()) {
-      case "/register":
+    switch (choice.trim()) {
+      case "1":
         await promptRegister();
         break;
-      case "/set-password":
+      case "2":
         await promptSetPassword();
         break;
-      case "/login":
+      case "3":
         await promptLoginAndProfile();
         break;
-      case "/exit":
+      case "4":
         console.log("👋 Exiting...");
         rl.close();
         process.exit(0);
+        break;
       default:
-        console.log("❓ Unknown command. Try again.");
+        console.log("❓ Invalid choice. Please select a valid option (1-4).");
     }
   }
 }
