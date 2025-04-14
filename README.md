@@ -23,3 +23,16 @@ This is a command-line tool for interacting with the API to manage business-rela
 ```bash
 git clone https://github.com/Tapiwa-1/xash-client.git
 cd xash-client
+```
+
+### 2. Installation 
+
+```bash
+npm install
+```
+
+### 2. Execution
+
+```bash
+node index.js
+```
